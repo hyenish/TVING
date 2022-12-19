@@ -1,0 +1,255 @@
+@font-face {
+	font-family: "Pretendard-Regular";
+	src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+		format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Pretendard-Bold";
+	src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff")
+		format("woff");
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Pretendard-Black";
+	src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Black.woff")
+		format("woff");
+	font-weight: 900;
+	font-style: normal;
+}
+
+$wideWidth: "(min-width: 1400px)";
+$smallWidth: "(max-width: 575px)";
+
+nav {
+	min-height: 65px;
+}
+a {
+	text-decoration: none;
+}
+body {
+	font-family: "Pretendard-Regular";
+	background-color: #141414;
+	color: #fff;
+}
+
+.loader-container {
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+}
+
+.navTop {
+	.nav-item {
+		margin-left: 30px;
+		color: white;
+		transition: 0.2s ease-in-out;
+
+		&:hover {
+			opacity: 0.5;
+		}
+	}
+}
+
+.banner {
+	position: relative;
+	display: flex;
+	height: 50vw;
+	align-items: flex-end;
+	// align-items: center (원래 옵션);
+	background: {
+		position: center center;
+		size: cover;
+	}
+
+	@media #{$wideWidth} {
+		height: 700px;
+	}
+	@media #{$smallWidth} {
+		height: 287.5px;
+	}
+
+	&::before {
+		position: absolute;
+		content: "";
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			to bottom,
+			transparent 50%,
+			rgba(0, 0, 0, 0.8) 85%,
+			#141414 100%
+		);
+	}
+
+	.banner-info {
+		//원래는 align-items: center라서 padding-bottom 안넣었음
+		padding-bottom: 5vh;
+		width: 50%;
+		margin-left: 5vw;
+		z-index: 1;
+
+		@media #{$wideWidth} {
+			padding-bottom: 70px;
+		}
+		@media #{$smallWidth} {
+			padding-bottom: 28.75px;
+		}
+
+		h1 {
+			font-family: "Pretendard-Black";
+			font-size: 5vw;
+			text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+			word-break: keep-all;
+
+			@media #{$wideWidth} {
+				font-size: 70px;
+			}
+			@media #{$smallWidth} {
+				font-size: 28.75px;
+			}
+		}
+
+		p {
+			font-size: 1.5vw;
+			line-height: 1.5;
+			opacity: 0.9;
+			text-shadow: 0 0 3px rgba(0, 0, 0, 1);
+
+			@media #{$wideWidth} {
+				font-size: 21px;
+			}
+			@media #{$smallWidth} {
+				// visibility: hidden;
+				display: none;
+			}
+		}
+	}
+}
+
+.slide-container {
+	margin: 0 50px;
+
+	h2 {
+		margin: 50px 0 20px;
+		font-family: "Pretendard-Bold";
+	}
+
+	@media #{$smallWidth} {
+		margin: 20px;
+	}
+}
+
+.card-wrap {
+	padding: 0 10px;
+
+	.slide-card {
+		height: 220px;
+		border-radius: 10px;
+		background: {
+			size: cover;
+			position: center top;
+		}
+		overflow: hidden;
+		cursor: pointer;
+	}
+}
+.slide-card:hover .card-info {
+	opacity: 1;
+}
+.card-info {
+	opacity: 0;
+	background: rgba(0, 0, 0, 0.8);
+	height: 100%;
+	padding: 20px;
+	transition: 0.2s ease-in-out;
+
+	h5 {
+	}
+	p {
+		span {
+			margin-right: 7px;
+		}
+	}
+	.card-infoSub {
+		position: absolute;
+		bottom: 20px;
+		.star {
+		}
+		.r-rated {
+			color: #ca0e0e;
+			font-family: "Pretendard-Bold";
+			margin-left: 10px;
+		}
+		.g-rated {
+			color: #21af21;
+			font-family: "Pretendard-Bold";
+			margin-left: 10px;
+		}
+	}
+}
+/*카드 슬라이드 화살표*/
+.react-multi-carousel-list > .react-multiple-carousel__arrow--left {
+	left: 0;
+}
+.react-multi-carousel-list > .react-multiple-carousel__arrow--right {
+	right: 0;
+}
+
+.footer {
+	border-top: 1px solid rgba(255, 255, 255, 0.3);
+	margin: 150px 50px 0;
+	padding: 50px;
+	text-align: center;
+	color: #ddd;
+}
+
+.detail-img {
+	margin-top: 50px;
+	width: 550px;
+}
+.genrebadge {
+	margin: 10vh 7px 20px 0;
+	margin-right: 7px;
+}
+.count span {
+	margin-right: 14px;
+}
+.detail-overview {
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+	padding: 30px 0;
+	margin: 50px 0;
+}
+.traile-btn {
+	display: inline-block;
+	padding: 3px 10px;
+	background-color: #dc3545;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+.modal-content {
+	background-color: #000;
+}
+.modal-header {
+	border: 0;
+}
+.modal-body {
+	text-align: center;
+	width: 80%;
+	margin: auto;
+
+	& * {
+		display: block;
+		height: 80vh;
+		width: 100%;
+	}
+}
+.btn-close {
+	background-color: rgba(255, 255, 255, 1);
+}
