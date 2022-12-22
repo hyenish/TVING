@@ -3,7 +3,7 @@
 import api from "../api";
 import { movieActions } from "../reducers/movieReducer";
 
-const APIkey = process.env.REACT_APP_APIKEY;
+// const APIkey = process.env.REACT_APP_APIKEY;
 //받아온 키 값을 노출되지 않게 만든다 -> 루트에 .env 파일
 //미들웨어는 함수가 함수를 리턴
 
@@ -13,17 +13,30 @@ function getMovies() {
 		try {
 			dispatch(movieActions.getMoviesRequest()); //로딩전 던져줌
 
+			// const popularMovieApi = api.get(
+			// 	`/movie/popular?api_key=${APIkey}&language=ko-KR&page=1`,
+			// );
+			// const topRatedMovieApi = api.get(
+			// 	`/movie/top_rated?api_key=${APIkey}&language=ko-KR&page=1`,
+			// );
+			// const upcomingMovieApi = api.get(
+			// 	`/movie/upcoming?api_key=${APIkey}&language=ko-KR&page=1`,
+			// );
+			// const genreApi = api.get(
+			// 	`/genre/movie/list?api_key=${APIkey}&language=ko-KR`,
+			// );
+
 			const popularMovieApi = api.get(
-				`/movie/popular?api_key=${APIkey}&language=ko-KR&page=1`,
+				"/movie/popular?api_key=4c7f709f1db2c8b588d40be823044bd6&language=ko-KR&page=1",
 			);
 			const topRatedMovieApi = api.get(
-				`/movie/top_rated?api_key=${APIkey}&language=ko-KR&page=1`,
+				"/movie/top_rated?api_key=4c7f709f1db2c8b588d40be823044bd6&language=ko-KR&page=1",
 			);
 			const upcomingMovieApi = api.get(
-				`/movie/upcoming?api_key=${APIkey}&language=ko-KR&page=1`,
+				"/movie/upcoming?api_key=4c7f709f1db2c8b588d40be823044bd6&language=ko-KR&page=1",
 			);
 			const genreApi = api.get(
-				`/genre/movie/list?api_key=${APIkey}&language=ko-KR`,
+				"/genre/movie/list?api_key=4c7f709f1db2c8b588d40be823044bd6&language=ko-KR",
 			);
 
 			let [popularMovies, topRatedMovies, upcomingMovies, genreList] =
@@ -56,11 +69,18 @@ function getMoviesDetail(id) {
 		try {
 			dispatch(movieActions.getMoviesRequest());
 
+			// const detailMovieApi = api.get(
+			// 	`/movie/${id}?api_key=${APIkey}&language=ko-KR`,
+			// );
+			// const trailerVideoApi = api.get(
+			// 	`/movie/${id}/videos?api_key=${APIkey}&language=ko-KR`,
+			// );
+
 			const detailMovieApi = api.get(
-				`/movie/${id}?api_key=${APIkey}&language=ko-KR`,
+				`/movie/${id}?api_key=4c7f709f1db2c8b588d40be823044bd6&language=ko-KR`,
 			);
 			const trailerVideoApi = api.get(
-				`/movie/${id}/videos?api_key=${APIkey}&language=ko-KR`,
+				`/movie/${id}/videos?api_key=4c7f709f1db2c8b588d40be823044bd6&language=ko-KR`,
 			);
 
 			let [detailMovies, trailerVideo] = await Promise.all([
